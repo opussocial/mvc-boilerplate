@@ -94,9 +94,9 @@ export default function DataGrid({ activeTab, data }: DataGridProps) {
                 </>}
                 {activeTab === 'tokens' && <>
                   <div className="col-span-1 truncate opacity-60">#{row.id}</div>
-                  <div className="col-span-1 md:col-span-2 uppercase text-[10px] font-black">{row.user_email}</div>
-                  <div className="col-span-1 md:col-span-2 truncate opacity-70 font-mono tracking-tighter">{row.token}</div>
-                  <div className="hidden md:block text-[10px] opacity-60 tracking-wider font-bold">{row.type.toUpperCase()}</div>
+                  <div className="col-span-1 md:col-span-2 uppercase text-[10px] font-black">{row.user_email || 'SYSTEM'}</div>
+                  <div className="col-span-1 md:col-span-2 truncate opacity-70 font-mono tracking-tighter">{row.token || '--'}</div>
+                  <div className="hidden md:block text-[10px] opacity-60 tracking-wider font-bold">{row.type?.toUpperCase() || '--'}</div>
                 </>}
                 {activeTab === 'config' && <>
                   <div className="col-span-2 font-bold uppercase border-l-2 border-[#141414] pl-2">{row.key}</div>
@@ -115,8 +115,8 @@ export default function DataGrid({ activeTab, data }: DataGridProps) {
                 </>}
                 {activeTab === 'event-logs' && <>
                   <div className="col-span-1 flex items-center gap-2">
-                     <Activity className={`w-3 h-3 ${row.event_type.includes('ERR') ? 'text-rose-600' : 'text-emerald-600'}`} />
-                     <span className="font-bold text-[11px]">{row.event_type}</span>
+                     <Activity className={`w-3 h-3 ${row.event_type?.includes('ERR') ? 'text-rose-600' : 'text-emerald-600'}`} />
+                     <span className="font-bold text-[11px]">{row.event_type || 'EVT'}</span>
                   </div>
                   <div className="col-span-3 md:col-span-3 truncate text-[11px] opacity-80">{row.message}</div>
                   <div className="hidden md:block col-span-2 text-right text-[10px] opacity-40 font-mono italic">{new Date(row.created_at).toLocaleTimeString()}</div>

@@ -20,6 +20,7 @@ export function useDashboardData(activeTab: EntityType) {
   }, [activeTab]);
 
   useEffect(() => {
+    setData([]); // Reset data on tab switch to prevent stale rendering
     refresh();
   }, [refresh]);
 
