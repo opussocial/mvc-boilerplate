@@ -1,0 +1,6 @@
+{
+  "name": "MVC SQLite Explorer",
+  "description": "A full-stack MVC application with a local SQLite database featuring User, Token, Config, Feature Switch, and Event Log management.",
+  "requestFramePermissions": [],
+  "majorCapabilities": []
+}
